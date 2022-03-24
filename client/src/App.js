@@ -1,26 +1,25 @@
-import React from "react";
+import React from 'react';
 import {
-  ApolloProvider,
   ApolloClient,
   InMemoryCache,
+  ApolloProvider,
   createHttpLink,
-} from "@apollo/client";
-import { setContext } from '@apollo/client/link/context'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-import Login from "./pages/Login";
-import NoMatch from "./pages/NoMatch";
-import SingleThought from "./pages/SingleThought";
-import Profile from "./pages/Profile";
-import Signup from "./pages/Signup";
-
-import Home from "./pages/Home";
+import Home from './pages/Home';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SingleThought from './pages/SingleThought';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -37,7 +36,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
 
 function App() {
   return (
@@ -56,7 +54,6 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
           </div>
-
           <Footer />
         </div>
       </Router>
