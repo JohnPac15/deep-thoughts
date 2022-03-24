@@ -1,1 +1,1 @@
-# deep-thoughts
+# deep- Arctic me automatically open and start the app
